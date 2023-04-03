@@ -1,0 +1,19 @@
+    - List vs Set
+        - ArrayList internals
+        - LL internals
+        - AL vs LL
+        - Stack internals + Program
+
+    - HashSet internals
+        - Hashing
+        - equals() and hashcode() contract
+
+    - Map
+        - HashMap internals
+        - Whats new introduced in HM
+        - TreeMap internals
+        - ConcurrentHashmap internals
+    
+    - Queue
+        - SynchronousQ
+        - BlockingQ

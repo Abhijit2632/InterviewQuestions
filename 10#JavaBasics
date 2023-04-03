@@ -1,0 +1,22 @@
+    - SOLID Principles
+        - Single Responsibility
+        - Open for Extention Close for Updation
+        - Liskovs Substitution
+        - Interface Segregation
+        - Dependency Inversion
+    - OOPs Concept
+        - Inheritance
+            - IS-A relation
+            - Has-A relation
+            - Own's-A relation
+        - Polymorphism
+            - Overloading
+            -Overriding
+        - Abstraction
+            - Abstract class
+            - Interface - Marker Interface
+        - Encapsulation
+    - Static
+    - Keywords
+    - Explain main()
+    - 
