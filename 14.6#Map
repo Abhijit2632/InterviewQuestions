@@ -1,0 +1,56 @@
+- Map
+    - HashMap
+        - HashMap internals
+            - HashMap allows only one null Key
+            - HashMap in Java is basically an array of buckets (also known as bucket table of HashMap) 
+            - where each bucket uses linked list to hold elements. 
+            - A linked list is a list of nodes where each node contains a key-value pair = Node<K,V>.
+                static class Node<K,V> implements Map.Entry<K,V> {
+                    final int hash;             //It is a hash value of the key.
+                    final K key;                //It is a key of the node.
+                    V value;                    //It gives the value of the node.
+                    Node<K,V> next;             //It indicates the pointer to the next node present in the bucket or linked-list.
+                }
+            - HashMap works on the principle of hashing.
+            - It provides the best time complexity of O(1) for insertion and retrieval of objects.
+            - Initial Capacity = 16
+            - Load Factor = 75%
+        - How put() method of Hashmap works internally in Java?
+            - Syntax = hashmap.put(key, value);
+            - HashMap calculates a hash value or hash code of key by calling its hashCode() method. 
+            - HashMap uses that code to calculate the bucket index in which key/value pair will be placed.
+                - Index = hashCode(key) & (n-1);
+        - How is Hash Collision occurred and resolved?
+            - A hash collision occurs when hashCode() method generates the same index value for two or more keys 
+            in the hash table. 
+            - In that case, check via the hashCode() and equals() method if both the keys are the same.
+                - If keys are the same, replace the value with the current value.
+                - Otherwise, connect this node object to the previous node object via linked list and both are stored at index 6. 
+            - HashMap uses linked-list for Buckets. 
+        - Rehashing?
+            - occurs automatically by HashMap when the number of keys in the map reaches the threshold value.
+            - Threshold = Load Factor * Available Capacity = 0.75 * 16 = 12
+            - When 13th key-value pair is inserted, HashMap grows its bucket array size to 16*2 = 32.
+        - Whats new introduced in HM?
+            - In Java 8, HashMap replaces linked list with a Binary-tree when the number of 
+            elements in a bucket reaches certain threshold.
+            - While converting the list to binary tree, hashcode is used as a branching variable. 
+            - If there are two different hashcodes in the same bucket, one is considered bigger and goes to the right of 
+            the tree and other one to the left. 
+            - But when both the hashcodes are equal, HashMap assumes that the keys are comparable, and compares the key 
+            to determine the direction so that some order can be maintained. 
+            - It is a good practice to make the keys of HashMap comparable.
+            - This JDK 8 change applies only to HashMap, LinkedHashMap and ConcurrentHashMap. 
+        - TreeMap internals
+        - ConcurrentHashmap internals
+            - belongs to java.util.concurrent package.
+            - inserting null objects is not possible in ConcurrentHashMap as a key or value.
+            - while dealing with Threads HashMap is not a good choice because performance-wise HashMap.
+            - ConcurrentHashMap is a thread-safe implementation of the Map interface.
+            - it provides fine-grained locking i.e. it locks only the portion of the map being modified, rather than the entire map.
+            - the Object is divided into a number of segments according to the concurrency level. The default 
+            concurrency-level of ConcurrentHashMap is 16.
+            - To update a object, the thread must lock the particular segment in which the thread wants to operate. This 
+            type of locking mechanism is known as Segment locking or bucket locking. 
+            - provides various methods for atomic operations such as putIfAbsent(), replace(), and remove().
+            - The underlined data structure for ConcurrentHashMap is Hashtable.

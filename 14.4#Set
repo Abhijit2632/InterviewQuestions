@@ -1,0 +1,4 @@
+- Set
+    - HashSet internals
+        - Hashing
+        - equals() and hashcode() contract

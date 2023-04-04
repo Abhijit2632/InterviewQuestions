@@ -1,0 +1,6 @@
+    - Annotations
+        - @Transactional
+        - 
+    - get vs load()
+    - caching
+    

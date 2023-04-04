@@ -1,0 +1,16 @@
+    - Spring Core 
+        - IOC(Inversion of Control/ Dependency Injection)
+    - Spring MVC
+    - Spring Security 
+    
+    - Spring boot
+        - Starter
+        - Exclude 
+        -
+    - Annotations
+        - @SpringBootApplication
+        - @RestController
+        - @Bean
+        - @Autowired
+        - 
+
