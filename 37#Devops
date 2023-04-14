@@ -1,0 +1,37 @@
+    -Linux
+        - basics
+        - file structure
+        - cron job
+        - 
+    - Git
+        - features
+        - PR
+        - Merge
+        - Complete workflow
+    - Scripting Laanguage
+        - For Automaation
+        - OS Dependent(Linux)/independent(Python/Go)
+    
+    - Networking
+        - Proxy
+        - Load Balancer
+        - Protocols
+        - Free ports
+        - Security
+    - CICD
+        - Pipeline(How it works!)
+        - Jenkins
+    - Cloud(Azure)
+        - different services
+        - VM,Deploy,LB,Private Cloud
+    - Containerization
+        - Docker
+        - K8
+            - Orchestrate
+            - 
+    - Infrastructure
+        - Provisioning(Tera form)
+        - Configuration Mgmt
+    - Monitoring and logging
+        - Grafanna
+        

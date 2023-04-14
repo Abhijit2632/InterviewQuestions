@@ -1,0 +1,14 @@
+    - Java 17 Support
+        - record
+
+        
+    - Jakarta/J2EE
+
+    - Spring Native
+
+    - Observability
+    - ProblemDetails
+    - HttpExchange
+        - Rest clients
+        - Functional/Declarative way
+        - 
