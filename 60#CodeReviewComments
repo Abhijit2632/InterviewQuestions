@@ -1,0 +1,5 @@
+    - Use StringBuilder when doing concantination of strings
+    - Optimize when creating a Connection with any service
+    - Make sure to close Connection as well
+    - Add usefull comments when trying to implement a complecated logic
+    - 

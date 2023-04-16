@@ -1,4 +1,13 @@
     - Immutable
+        - Make the class final so it can not be extended further
+        - Bydefault its properties will be final
+        - No setters 
+        - Inititialize using parameterized consrtuctor
+        - return cloned copy when have another object included
     - String methods
+        - intern()
+        - contains()
+        - 
     - StringBuilder vs StringBuffer
+        - StringBuilder is non-thread safe. so fast. So more efficent. Hence widely used!
     - String Programs

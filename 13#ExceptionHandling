@@ -10,5 +10,9 @@
                 }
             }
         - Step2:
-            
+            try{
+                //risky code
+            }catch(){
+                throw new ServerUnavailableException("Exception Message");
+            }
     - Exception propagation with overloading

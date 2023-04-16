@@ -1,0 +1,19 @@
+Monolith-->Microservice(N-App's)-->Single Repo devops
+
+Git Branching Structure,
+
+Project structure,
+    -CICD
+    - scr 
+    - gitIgnore
+    - Dockerfile + Build 
+    - ReadMe
+    - Release 
+
+CICD Flow,
+    - Dockerfile
+    - Build.yml
+    - BuildDockerImage.yml 
+    - Autoscaling.yml 
+    - Helm
+    -
