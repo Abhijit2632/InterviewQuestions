@@ -1,0 +1,38 @@
+API Gateway(Spring Cloud Gateway),
+
+--Uses Filter,Proxies etc..
+Client---->API Gateway(Interface/Abstraction)---->Individual Microservice
+
+Benefits,
+1.URL , Port knowledge not required
+2.Single point of entry
+3.Load Balancer
+4.Rate limiting feture(Free for 3 times but then chargeable)
+5.Monitoring as well()
+
+
+
+-->Create a config class,
+1.create a routelocatorbuilder.Ex,
+@Bean
+    public RouteLocator myRoutes(RouteLocatorBuilder routeLocatorBuilder)
+    {
+        return routeLocatorBuilder.routes()
+                .route(p ->p
+                        .path("/v1/country/capitals")
+                        .uri("http://localhost:8081"))
+                .route(p ->p
+                        .path("/v1/country/coastline")
+                        .uri("http://localhost:8081"))
+                .route(p ->p
+                        .path("/v1/books/all")
+                        .filters(f->f.requestRateLimiter().configure(c->c.setRateLimiter(redisRateLimiter())))
+                        .uri("http://localhost:8082"))
+                .route(p ->p
+                        .path("/v1/books/all/delayed")
+						//use resiliency4J for circuit breaker
+                        .filters(f -> f.circuitBreaker(c->c.setName("codedTribeCB").setFallbackUri("/defaultFallback")))
+                        .uri("http://localhost:8082"))
+                .build();
+    }
+2.we can add preprocessing/post processing this as well

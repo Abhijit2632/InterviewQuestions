@@ -1,0 +1,16 @@
+ng build --prod
+
+ng build --configuration production --base-href=/ccmapper-angular/
+
+
+open S3 and create a new bucket
+upload all files part of ur dist
+grant public read access
+
+add bucket policy,
+
+
+
+host this,
+properties
+static wesite hosting and add index.html and save

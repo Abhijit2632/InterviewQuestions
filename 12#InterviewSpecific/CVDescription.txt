@@ -1,0 +1,89 @@
+
+Abhijit Mishra
+Abhijit.Mishra2@cognizant.com
+9003049525
+
+
+Experience Summary
+•	Currently Serving at Cognizant Technologies from 15th Nov 2021.
+•	I was with HCL Technologies, Chennai from 31st May 2016 to 9th Nov 2021.
+Education
+Title of the Degree	College/University	Year of Passing
+Science	CHSE	2007
+B.Tech	B.P.U.T	2012
+
+Skill Set
+Java 8	6 years
+Micro Services	4 years
+Spring Boot	4 years
+Hibernate	2 years
+Rest API	5 years
+Git/Maven	6 years
+Apache-Kafka,Camel,Flink	1 year
+Angular 8	11 months
+
+Projects
+           Name
+
+Project Title#3	UNIPER-ETRMS
+Duration	Nov – 2021
+Technologies	Core Java 8/17, Spring Boot,Apache Camel,Apache Flink,Kafka,Angular,Azure Devops ,Junit5.
+Databases and Other Utilities	SQL Server
+
+
+
+          PROJECT DESCRIPTION:
+			
+UNIPER-ETRMS and Integration Project is group of activities aiming to transform Sales & Trading IT integrations for flexibility/scalability/reusability needs, and introduce a central monitoring solution for trades flow.
+
+ROLES AND RESPONSIBILITIES: 
+
+•	Analysis of the specifications provided by client.
+•	Understanding the requirements of the system.
+•	Development and bug fixing in the application.
+•	Migrated existing As-Is code to Spring boot application and deployed in AKS Cluster.
+•	Taken up Apache Camel,Flink,Kafka and Angular 8 to create production ready Applications.
+
+         Name
+
+Project Title#2	Cisco - CSPC
+Duration	Nov – 2019 to Nov - 2021
+Technologies	Core Java 7/8, Spring Boot, JPA, MySql, Jenkins, Git, Maven, Junit5, Design patterns.
+Databases and Other Utilities	Cisco CSDL, MariaDB
+
+
+
+PROJECT DESCRIPTION:
+			
+The Cisco Common Service Platform Collector (CSPC) is an SNMP-based tool that discovers and collects information from the Cisco devices installed on your network. The CSPC software provides an extensive collection mechanism to gather various aspects of customer device data. Information gathered by the collector is used by several Cisco Service offers, such as Smart Net Total Care, Partner Support Service, and Business Critical Services. The data is used to provide inventory reports, product alerts, configuration best practices, technical service coverage, lifecycle information, and many other detailed reports and analytics for both the hardware and operating system (OS) Software.
+
+ROLES AND RESPONSIBILITIES: 
+
+•	Analysis of the specifications provided by client.
+•	Understanding the requirements of the system.
+•	Development and bug fixing in the application.
+•	Handled the Security module for the application.
+•	Deploying Build at Server Side.
+•	Worked for both OnPremise and Cloud Services.
+
+Name
+
+Project Title#1	Cisco - UCSD
+Duration	July – 2016 to Nov - 2019
+Technologies	Core Java 7/8, Spring MVC, JPA, MySql, Git, Maven, Junit5, Design patterns,Docker, Angular 7.
+Databases and Other Utilities	Cisco CSDL
+
+
+
+PROJECT DESCRIPTION:
+			
+UCSD stands for Unified Computing System Director. It changes the economics of the data center by unifying compute, storage, networking, virtualization, and management into a single platform. As a result, operational simplicity comes. Cisco UCS is the smart, innovative, fabric computing infrastructure that simplifies operations and speeds deployment. Cisco Unified Management solutions help organizations to automate and manage their IT infrastructure and services to meet the needs of the business. Cisco data center and cloud management software provides the flexibility and agility needed for IT to deliver services faster, more efficiently and with lower total cost of ownership. 
+
+ROLES AND RESPONSIBILITIES: 
+
+•	Analysis of the specifications provided by client.
+•	Understanding the requirements of the system.
+•	Coding and bug fixing in the application.
+•	Writing Exception Handling code and Validation Packages.
+•	Helped in Automating and designing for the web application UI and Filing the bugs if noticed. 
+

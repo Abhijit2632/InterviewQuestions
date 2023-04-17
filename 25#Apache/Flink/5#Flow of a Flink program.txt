@@ -1,0 +1,27 @@
+
+
+Program Flow,
+
+1.Data Source(Batch or Stream-Flume/Kafka)
+2.Processing operation
+3.Sink(Here we dump the processed data-HDFS/MongoDB)
+
+Connectors helps in putting data to Sink.
+
+Ex,
+Calculate all strings that start with 'N'?
+
+As Flink is a distributed processing framework so the flow will be like this,
+
+1.Block1-->2.ReadFile using predefined method from Block1's memory-->Put that to a Node-->Filter all that starts with 'N' and put to another Node-->Now remove duplicates and count by using groupBy and put in another node-->this is the final output.
+
+
+
+Q>How Fault tollerence is managed by Flink? By using DataSet/DataStream Objects for each operation.
+If ur code written in Java u have to explicitly mention DataSet for the type of ur output but Scala that's not mandatory.
+
+What is DataSet?
+1.It's immutable. So u can not alter a dataset. U can not perform multiple operations on a dataset
+2.
+
+ 

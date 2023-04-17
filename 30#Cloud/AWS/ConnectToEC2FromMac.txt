@@ -1,0 +1,11 @@
+Using SSH,
+1.Copy the public DNS/IP
+Public IPv4 address : 54.218.56.142 
+2.create the pem file
+3.and download
+4.update the permission from 0644 to 0400
+Chmod 0400 AbhijitMac.cer
+5.for Could not resolve hostname [hostname]: nodename nor servname provided, or not known [closed] run bellow,
+sudo killall -HUP mDNSResponder
+6.now run,
+ssh -i AbhijitMac.cer ec2-user@54.218.56.142

@@ -1,0 +1,16 @@
+
+
+
+DataStreams can be used for Streams where the input could be,
+	1.File(that is continuously getting updated)--readFile()
+	2.Socket--socketTextStream()
+	3.Kafka/Flume??--addSource()
+Code Flow,
+	1.create a class
+	2.get the execution env:-StreamExecutionEnvironment env2 = StreamExecutionEnvironment.getExecutionEnvironment();
+	3.
+	n-1.Transformation code(groupBy is replaced by keyBy)
+	n.Sinks for DataStreams API,
+		a.
+		n.addSink()
+	final.call the execute()

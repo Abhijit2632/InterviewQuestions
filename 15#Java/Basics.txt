@@ -1,0 +1,18 @@
+boolean 
+datatypes ? default size?
+NAN??
+127 = 2^8 length for ?? Error =??
+'a++' vs 'a=a+1' ==> if a=127, 'a=a+1' will throw some error coz range has been crossed so instead use 'a++' then it will be wrapped by java.
+variables?types?Local/Instance/Static?
+memory in JVM(Abstract Machine)? Static/Class,Object/Heap,Local/Stack,Register(Excutes command),Native
+
+main() signature? what else can be added other than psvm? what if i change String to INTEGER?
+explain System.out.println()?
+
+constructor?use?types?
+this() keyword??benifits?constructor chaining?
+super keyword?
+explain static? use? types? benifit? can u call from non static block?
+
+What is the compiler used by Java? JIT(JustInTime)
+What is the compiler used by Eclipse/InteliJ?

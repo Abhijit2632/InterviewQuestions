@@ -1,0 +1,26 @@
+Circuit Breaker(Resiliency4J),
+
+can be included part of API gateway to address slowness/unavailability issues.
+0.add the starter in pom.
+1.must implement in api gateway config,
+ @Bean
+    public Customizer<ReactiveResilience4JCircuitBreakerFactory> defaultCustomizer()
+    {
+        return factory->factory.configureDefault(id ->new Resilience4JConfigBuilder(id)
+                .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
+                .timeLimiterConfig(TimeLimiterConfig.custom()
+                        .timeoutDuration(Duration.ofSeconds(2)).build()).build());
+    }
+	
+2. create the fallback controller class,
+@RestController
+public class GatewayController
+{
+    @GetMapping("/defaultFallback")
+    public String defaultMessage()
+    {
+        return "There were some error in connecting. Please try again later.";
+    }
+}
+
+3. u can use ratelimmitter as well from Redis and configure.

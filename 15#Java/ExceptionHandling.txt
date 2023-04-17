@@ -1,0 +1,20 @@
+Exception Hierarchy?
+Types of Exception?CE/RE/Error(Unavoidable)
+
+C.E : Ex? SQLException
+R.E : NPE,ArithmeticEx,AIOBE,
+
+
+ClassNotFound vs NoClassDefnError ?? how to solve these issues?
+
+throw vs throws??
+
+JVM-->main() stack-->run() stack==Method Propagation(uses throws to address this for C.E.)
+throw is used to explicitly call one CustomDefined Exception.
+
+try(risky code)-catch(defines the handling logic with proper hierarchy)-finally?
+when finally doesnot execute?
+
+how to convert a CE into Runtime Exception?Hibernate uses this bydefault?
+
+Write one Custom Exception?

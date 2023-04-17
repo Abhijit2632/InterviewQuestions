@@ -1,0 +1,13 @@
+
+
+
+Flink is the Runtime here
+
+DataSet(Java/Python/Scala)/DataStream(Java/Scala only) API are prog abstractions.
+
+Other Libraries: Table API,Graph Also,ML Library
+
+Env:Local/Distributed,EC2/Google GCE
+Can integrate with : Mongo,
+
+

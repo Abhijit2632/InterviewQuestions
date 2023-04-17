@@ -1,0 +1,49 @@
+Concepts?
+
+
+Is Java purely OOP?
+
+Inheritance? What is? Benifits?? How can we achieve?? extends/implements
+Possible Types?Single,Hybrid,Multilevel
+Why no Multiple Inheritance in Java?
+What is Diamond problem?
+
+Polymorphism? defination? types?
+Overloading? Compiletime? Rules?Same params and type?Return Type?? Benifits? Var args(...)??
+Overriding? Runtime/Dynamic?<Must be in Inheritance-IS-A relationship>? Rules?Same params and type?Return Type?? Benifits?Ex(toString)??
+Covariant Return Type??
+
+Abstraction?What it is? How to achieve?
+abstract class vs interface??
+Interface:Declaration,Define?
+can u declare a constructor inside a Abstract class?
+
+abstract class A 
+c(){//some details return 3}
+concrete class B extends A
+c(){//some other detailsreturns 5}
+
+Typecasting()
+A b = new B();		//Downcasting(we are narrowing the type of object i.e we are converting common type to individual type.)	
+A c = new C();
+B b1 = new A();		//Rarely used/Upcasting(classes must be in is-a relationship/Inheritance to have upcasting) can get ClassCastException
+
+-------------------------Incase of Upcasting
+int val = b.c();	//val = 5
+
+A a = c();
+if (A instanceof B) {
+    // the object can be casted and the code won't fail
+    B castedB = (B) a;
+}
+int val1 = castedB.c();	//val = 3
+
+upcasting/downcasting ??
+
+Wraping-->int simply means "Integer int = new 4()"
+
+Encapsulation:defn?how can we achieve this?? Ex:Pojo class
+
+Abstraction(Design level) vs Encapsulation(implementation level)??
+
+

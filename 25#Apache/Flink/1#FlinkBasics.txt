@@ -1,0 +1,28 @@
+
+
+
+1.What is Apache Flink?
+It's a Framework to do data processing.
+Data processing can be done in 2 ways: Batch mode(Kept at rest ie in file,DB)/Stream mode(Socket,Messaging System etc..).
+
+Main power lies in Stream processing.
+
+Real time use cases: Stock Market, Financial transactions(Fraud detection),Recommend ad's based on live web data.
+Open source
+Stream processing Framework For,
+	1.Distributed
+	2.High Performance
+	3.Always available
+It also supports,
+	1.Batch processing
+	2.Graph processing
+	3.Iterative Processing in ML
+
+While running a job it gives,
+Low Latency()
+High Throughput
+Robust Fault tollerance using its State and Checkpointing features.
+Semantics:Exactly Once/At least Once
+
+Why Flink not Spark?
+	much faster than Spark>Hadoop.

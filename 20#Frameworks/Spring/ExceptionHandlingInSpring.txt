@@ -1,0 +1,93 @@
+Step1::::create the custom Exception class,
+package uniper.poc.exception;
+
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus
+public class ResourceNotFoundException extends RuntimeException {
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4942344025921268451L;
+
+	public ResourceNotFoundException(String message) {
+		super(message);
+	}
+
+	public ResourceNotFoundException(String message, Throwable throwable) {
+		super(message, throwable);
+	}
+}
+
+Step2::::create the controller class 
+
+@ControllerAdvice
+public class ControllerAdvisor extends ResponseEntityExceptionHandler {
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Object> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+	@ExceptionHandler(AliasAlreadyAvailableException.class)
+    public ResponseEntity<Object> handleAliasAlreadyAvailableException(AliasAlreadyAvailableException ex, WebRequest request) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(body, HttpStatus.FOUND);
+    }
+
+    @ExceptionHandler(CityNotFoundException.class)
+    public ResponseEntity<Object> handleCityNotFoundException(
+        CityNotFoundException ex, WebRequest request) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("message", "City not found");
+
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(NoDataFoundException.class)
+    public ResponseEntity<Object> handleNodataFoundException(
+        NoDataFoundException ex, WebRequest request) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("message", "No cities found");
+
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+        MethodArgumentNotValidException ex, HttpHeaders headers, 
+        HttpStatus status, WebRequest request) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDate.now());
+        body.put("status", status.value());
+
+        List<String> errors = ex.getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .map(x -> x.getDefaultMessage())
+                .collect(Collectors.toList());
+
+        body.put("errors", errors);
+
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+}
+
+Step2::::
+return cityRepository.findById(id)
+    .orElseThrow(() -> new CityNotFoundException(id));
+
+

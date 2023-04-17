@@ -1,0 +1,41 @@
+Primitive data types - such as Integer,Float etc..
+Non-primitive data types - such as String , Arrays and Classes
+
+How many different ways u can create a String?
+Literal vs Object??
+explain working of SCP?? its benifits?(memory management)
+how does intern()  help?
+
+String str1 = new String("Abhijit");
+String str = "Abhijit";
+String str2 = new String("Abhijit");
+String str5 = "Abhijit";
+
+str = str + "Mishra";
+
+diff ways to compare 2 strings?
+if(str1==str)		//false  why because == checks for memory address
+if(str1.equals(str))		//true  why because .equals() checks for value
+if(str2==str3)		//false
+
+Immutablility?? (I)Why String is Immutable?
+How to create one manually?
+0.Don’t allow subclasses to override methods -- making the class final
+1.Make all fields final and private
+2.Don’t provide “setter” methods -- Why? Initialize all fields using constructor.
+//3.Special attention when having mutable instance variables -- one var is mutable then u can (clone copy) Ex:https://dzone.com/articles/how-to-create-an-immutable-class-in-java
+
+
+How many different ways u can clone in Java? Shallow/Deep Copy?
+Java uses which copy by default?
+
+How to reverse a String??
+Print Ocurance of each char in a String?
+Permutation of a String?
+
+
+split() to break a Paragraph to String.
+toCharArray() to break a String into char array.
+
+
+
