@@ -1,0 +1,71 @@
+1.Features,
+
+Asynchronous/Non Blocking(Event based programming)
+
+Traditional API: Thread per request
+Size of Thread pool is limited for ex 20 so we can handle 20 requests parallaly.
+For the 21st request we need to wait.
+
+Functional Style code
+
+Works on publisher/Subscriber model
+
+Backpressure on data streams(Deals with huge amount of data and can limit the amount of data ur expecting in order to address outofmemory issue)
+
+Proper CPU utilization
+Less Downtime
+Concurrent data processing
+Stream processing 
+
+2.Reactive Stream Specification:
+a.Publisher(Producer),
+
+b.Subscriber(Consumer),
+
+c.Subscription,
+
+d.Processor
+
+3.Workflow,
+    1.Subscriber will invoke subscribe() to register with the Publisher
+    2.Publisher will confirm that Subscription is successfull
+    3.Subscriber will call request(n) to get data where n is number of records to manage Backpressure
+    4.Publisher will send data with onNext(data) with n number of records as specified part of Backpressure.
+    5.once all records received will get oncomplete()/onError() from Publisher
+
+4.Project Reactor is recommended for Spring boot
+5.Data types: Flux/Mono
+6.Test Flux/Mono
+    a.create object of Mono(Mono.just("Abhijit"))
+    b.call for subscribe()
+    c.add .log to see the flow of execution
+    d.Ex,
+    03:09:51.163 [main] INFO reactor.Mono.Just.1 - | onSubscribe([Synchronous Fuseable] Operators.ScalarSubscription)
+    03:09:51.163 [main] INFO reactor.Mono.Just.1 - | request(unbounded)
+    03:09:51.164 [main] INFO reactor.Mono.Just.1 - | onNext(Hi Abhijit)
+    Hi Abhijit
+    03:09:51.164 [main] INFO reactor.Mono.Just.1 - | onComplete()
+
+    e.onError()/Exceptional Handling can be a bigger subject.
+    f.same way we can test Flux
+        @Test
+    public void fluxTest(){
+        //Create the object of Publisher
+        Flux<String> fluxString = Flux.just("Spring","Hibernate","Rest API","Microservices").log();
+        //call for subscribe() using publisher object
+        fluxString.subscribe(System.out::println);
+    }
+    g.RestFlux with error handling,
+        @Test
+    public void fluxTest(){
+        //Create the object of Publisher
+        Flux<String> fluxString = Flux.just("Spring","Hibernate","Rest API","Microservices")
+                .concatWithValues("AWS")
+                .concatWith(Flux.error(new RuntimeException("Reading string value got exception")))
+                .concatWithValues("Azure")
+                .log();
+        //call for subscribe() using publisher object
+        fluxString.subscribe(System.out::println,(e)->System.out.println(e.getMessage()));
+    }
+    h.
+

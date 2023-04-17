@@ -1,0 +1,4 @@
+Url pattern,
+http://localhost:9150/readexceldata/date/24-07-2022
+
+Create Excel file EveryWeekDay at 9.30AM

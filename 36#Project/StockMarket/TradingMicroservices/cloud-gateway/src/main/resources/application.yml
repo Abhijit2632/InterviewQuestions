@@ -1,0 +1,73 @@
+server:
+  port: 9191
+spring:
+  application:
+    name: Cloud-Gateway-Service
+  cloud:
+    gateway:
+      routes:
+        - id: ReadExcelData-Service
+          uri: lb://ReadExcelData-Service
+          predicates:
+            - Path=/readexceldata/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: ReadExcelData-Service
+                fallbackuri: forward:/readExcelDataFallBack
+        - id: Notes-Service
+          uri: lb://Notes-Service
+          predicates:
+            - Path=/notes/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: Notes-Service
+                fallbackuri: forward:/notesFallBack
+        - id: UpdateCompany-Service
+          uri: lb://UpdateCompany-Service
+          predicates:
+            - Path=/updatecompany/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: UpdateCompany-Service
+                fallbackuri: forward:/updatecompanyFallBack
+        - id: Share-Service
+          uri: lb://Share-Service
+          predicates:
+            - Path=/share/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: Share-Service
+                fallbackuri: forward:/shareFallBack
+        - id: AdminPortal-Service
+          uri: lb://AdminPortal-Service
+          predicates:
+            - Path=/admin/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: AdminPortal-Service
+                fallbackuri: forward:/adminFallBack
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

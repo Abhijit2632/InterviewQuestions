@@ -1,0 +1,10 @@
+<form [formGroup]="noteForm" (ngSubmit)="onAddNote(noteForm)">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input formControlName="noteDescription" matInput>
+      </mat-form-field><br>
+              
+      <button mat-flat-button color="primary" type="submit">Add</button>
+    </div> 
+  </form>

@@ -1,0 +1,20 @@
+server:
+  port: 9150
+spring:
+  application:
+    name: ReadExcelData-Service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: investmentdb
+    codec:
+      max-in-memory-size: 16MB
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost

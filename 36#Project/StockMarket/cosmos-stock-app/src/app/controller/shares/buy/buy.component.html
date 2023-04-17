@@ -1,0 +1,31 @@
+<form [formGroup]="buyShareForm" (ngSubmit)="onBuyShares(buyShareForm)">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>CompanyName</mat-label>
+        <input formControlName="companyName" matInput>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input formControlName="priceAt" matInput>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input formControlName="quantityOf" matInput>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Initial Comments</mat-label>
+        <input formControlName="comment" matInput>
+      </mat-form-field><br>
+      <!-- <div *ngIf="!onConfirm">
+        <button mat-flat-button color="primary" type="click" (click)="onClickEvent(buyShareForm)">Confirm</button>
+      </div>
+      
+    <div *ngIf="onConfirm"> 
+        <mat-form-field appearance="fill">
+            <mat-label>Total</mat-label>
+            <input formControlName="totalSpend" matInput>
+          </mat-form-field><br>-->
+          <button mat-flat-button color="primary" type="submit">Buy</button>  
+      
+    </div> 
+  </form>

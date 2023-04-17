@@ -1,0 +1,58 @@
+  <mat-form-field >
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+  </mat-form-field>
+  <div>
+      <div>
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        
+            <ng-container matColumnDef="companyName">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="companyLTP">
+              <th mat-header-cell *matHeaderCellDef> companyLTP </th>
+              <td mat-cell *matCellDef="let element"> {{element.companyLTP}} </td>
+            </ng-container>
+            <ng-container matColumnDef="companyOpen">
+              <th mat-header-cell *matHeaderCellDef> OpenPrice </th>
+              <td mat-cell *matCellDef="let element"> {{element.companyOpen}} </td>
+            </ng-container>
+            <ng-container matColumnDef="companyHigh">
+              <th mat-header-cell *matHeaderCellDef> High </th>
+              <td mat-cell *matCellDef="let element"> {{element.companyHigh}} </td>
+            </ng-container>
+            <ng-container matColumnDef="companyLow">
+              <th mat-header-cell *matHeaderCellDef> Low </th>
+              <td mat-cell *matCellDef="let element"> {{element.companyLow}} </td>
+            </ng-container>
+            <ng-container matColumnDef="companyVolume">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header matSortDirection="asc"> Volume </th>
+              <td mat-cell *matCellDef="let element"> {{element.companyVolume}} </td>
+            </ng-container>
+            <ng-container matColumnDef="companyPreviousClose">
+              <th mat-header-cell *matHeaderCellDef> PreviousClose </th>
+              <td mat-cell *matCellDef="let element"> {{element.companyPreviousClose}} </td>
+            </ng-container> 
+            <ng-container matColumnDef="updatecompany">
+              <th mat-header-cell *matHeaderCellDef> Update Analysis </th>
+              <td mat-cell *matCellDef="let element">
+              <button mat-flat-button color="primary" type="button" (click)="onUpdateToDB(element.companyName)">Update</button>
+            </ng-container>
+            <ng-container matColumnDef="addnote">
+                <th mat-header-cell *matHeaderCellDef> Add Note </th>
+                <td mat-cell *matCellDef="let element">
+                <button mat-flat-button color="primary" type="button" (click)="onAddNote(element.companyName)">Add Note</button>
+              </ng-container>
+              <ng-container matColumnDef="viewnotes">
+                <th mat-header-cell *matHeaderCellDef> View Notes </th>
+                <td mat-cell *matCellDef="let element">
+                <button mat-flat-button color="primary" type="button" (click)="onViewNotes(element.companyName)">View Note</button>
+              </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[50,100,500]" showFirstLastButtons></mat-paginator>
+        </div>
+        
+          

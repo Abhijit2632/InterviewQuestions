@@ -1,0 +1,61 @@
+<div>
+    <div>
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            
+            <ng-container matColumnDef="orderId">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
+              </ng-container>
+              <ng-container matColumnDef="orderType">
+                <th mat-header-cell *matHeaderCellDef> Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.orderType}} </td>
+              </ng-container>
+          <ng-container matColumnDef="companyName">
+            <th mat-header-cell *matHeaderCellDef> companyName </th>
+            <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="priceAt">
+            <th mat-header-cell *matHeaderCellDef> price brought At </th>
+            <td mat-cell *matCellDef="let element"> {{element.priceAt}} </td>
+          </ng-container>
+          <ng-container matColumnDef="quantityOf">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantityOf}} </td>
+          </ng-container>
+          <ng-container matColumnDef="totalSpend">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalSpend}} </td>
+          </ng-container>
+          <ng-container matColumnDef="comment">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Target Comment </th>
+            <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
+          </ng-container>
+          <ng-container matColumnDef="orderedAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Brought On </th>
+            <td mat-cell *matCellDef="let element"> {{element.orderedAt}} </td>
+          </ng-container>
+          <ng-container matColumnDef="orderStatus">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.orderStatus}} </td>
+          </ng-container> 
+          <ng-container matColumnDef="viewnotes">
+            <th mat-header-cell *matHeaderCellDef> View Notes </th>
+            <td mat-cell *matCellDef="let element">
+            <button mat-flat-button color="primary" type="button" (click)="onViewNotes(element.companyName)">View Note</button>
+          </ng-container>
+          <ng-container matColumnDef="buy">
+            <th mat-header-cell *matHeaderCellDef> buy </th>
+            <td mat-cell *matCellDef="let element">
+            <button mat-flat-button color="primary" type="button" (click)="onBuy(element.companyName)">Buy More</button>
+          </ng-container>
+          <ng-container matColumnDef="sell">
+            <th mat-header-cell *matHeaderCellDef> Sell </th>
+            <td mat-cell *matCellDef="let element">
+            <button mat-flat-button color="primary" type="button" (click)="onSellshare(element.companyName)">Sell</button>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[50,100,500]" showFirstLastButtons></mat-paginator>
+      </div>

@@ -1,0 +1,23 @@
+<form [formGroup]="sellShareForm" (ngSubmit)="onSellShares(sellShareForm)">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>CompanyName</mat-label>
+        <input formControlName="companyName" matInput>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Sell Price</mat-label>
+        <input formControlName="priceAt" matInput>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input formControlName="quantityOf" matInput>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Final Comments</mat-label>
+        <input formControlName="comment" matInput>
+      </mat-form-field><br>
+      
+      <button mat-flat-button color="primary" type="submit">Sell</button>  
+      
+    </div> 
+  </form>

@@ -1,0 +1,8 @@
+Sign Up with Kite developer
+-->Create a new App
+-->Connect to ur kite acount and pay
+-->Unlink once paid
+-->
+
+Configure Kite Connect Jar
+

@@ -1,0 +1,44 @@
+
+Google Sheet--Create ur sheet
+-->go to Help-->app script
+--> copy bellow script and update
+
+function myFunction() {
+  var docs = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = docs.getSheetByName("DayToDayAnalysis");
+  var values = sheet.getDataRange().getValues();
+
+  var output = [];
+  for(var i = 0;i<values.length;i++){
+    var row = {};
+    row['Name'] = values[i][0];
+    row['LTP'] = values[i][2];
+    row['PREVClose'] = values[i][3];
+    output.push(row);
+  }
+  return ContentService.createTextOutput(JSON.stringify({data: output})).setMimeType(ContentService.MimeType.JSON);
+}
+
+
+//Working code deployed
+function doGet(req) {
+  var docs = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = docs.getSheetByName("DayToDayAnalysis");
+  var values = sheet.getDataRange().getValues();
+
+  var output = [];
+  for(var i = 0;i<values.length;i++){
+    var row = {};
+    row['Name'] = values[i][0];
+    row['LTP'] = values[i][1];
+    row['Open'] = values[i][2];
+    row['High'] = values[i][3];
+    row['Low'] = values[i][4];
+    row['Volume'] = values[i][5];
+    row['PREVClose'] = values[i][6];
+    output.push(row);
+  }
+  return ContentService.createTextOutput(JSON.stringify({data: output})).setMimeType(ContentService.MimeType.JSON);
+}
+
+Deploy-->New-->Web App--> For everyone

@@ -1,0 +1,136 @@
+create a spring init project with only eureka server dependency.
+
+add these props,
+    server:
+      port: 8761
+
+    eureka:
+      client:
+        register-with-eureka: false
+        fetch-registry: false
+
+Anotate it with @EnableEurekaServer.
+Update the eureka clients as well,
+1. in properties
+<spring-cloud.version>2021.0.3</spring-cloud.version>
+2.
+<dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+3.
+<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+ 4.for yml configuration
+ spring:
+   application:
+     name: ReadExcelData-service
+ eureka:
+   client:
+     register-with-eureka: true
+     fetch-registry: true
+     serviceUrl:
+       defaultZone: http://localhost:8761/eureka/
+   instance:
+     hostname: localhost
+5. use this annotation
+@EnableEurekaClient
+---------------------------------------------
+  1. create api gateway : eureka client + gateway + actuator dependency
+  2. add the yml configuration
+    server:
+      port: 9191
+    spring:
+      application:
+        name: Cloud-Gateway-Service
+      cloud:
+        gateway:
+          routes:
+            - id: ReadExcelData-Service
+              uri: lb://ReadExcelData-Service
+              predicates:
+                - Path=/readexceldata/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: ReadExcelData-Service
+                    fallbackuri: forward:/userServiceFallBack
+    eureka:
+      client:
+        register-with-eureka: true
+        fetch-registry: true
+        serviceUrl:
+          defaultZone: http://localhost:8761/eureka
+      instance:
+        hostname: localhost
+3.use EnableEurekaClient annotation
+4.implement hystrix for circuit breaker by following,
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
+   		<dependency>
+   			<groupId>org.springframework.cloud</groupId>
+   			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+   			<version>2.2.10.RELEASE</version>
+   		</dependency>
+   		<dependency>
+   			<groupId>org.springframework.cloud</groupId>
+   			<artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+   		</dependency>
+4.2 anotate with enable hystrx in main class
+4.3 implement the fallback controller
+4.4 update the yml configuration,
+    spring:
+      application:
+        name: Cloud-Gateway-Service
+      cloud:
+        gateway:
+          routes:
+            - id: ReadExcelData-Service
+              uri: lb://ReadExcelData-Service
+              predicates:
+                - Path=/readexceldata/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: ReadExcelData-Service
+                    fallbackuri: forward:/readExcelDataFallBack
+    eureka:
+      client:
+        register-with-eureka: true
+        fetch-registry: true
+        serviceUrl:
+          defaultZone: http://localhost:8761/eureka
+      instance:
+        hostname: localhost
+    hystrix:
+      command:
+        fallbackcmd:
+          execution:
+            isolation:
+              thread:
+                timeoutInMilliseconds: 4000
+    management:
+      endpoints:
+        web:
+          exposure:
+            include: hystrix.stream
+5.
+
+
