@@ -1,0 +1,4 @@
+    - Can u work with multiple databases in one APP?
+    - if yes how?
+    - use of @Transactional?
+    

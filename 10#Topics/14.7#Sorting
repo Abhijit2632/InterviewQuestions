@@ -1,0 +1,3 @@
+Primitive
+    - Arrays.sort(empList,Comparator.comparing(Emp::getName).thenComparing(Emp::getSal));
+    

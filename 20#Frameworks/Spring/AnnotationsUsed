@@ -5,8 +5,10 @@ Spring Boot Annotations have certain advantages attached to them such as-
 
 Ex,
 
-    @SpringBootApplication
-    @EnableAutoConfiguration
+    - @SpringBootApplication
+    - @EnableAutoConfiguration
+        - How to disable auto configuration
+            @EnableAutoConfiguration(exclude = {ListOfClasses})
     
     - @Service          //For Service classes
     - @Repository       //For DAO classes that deals with DB directly
@@ -22,9 +24,8 @@ Ex,
     - @Bean
         - used at the method level
         - managed by the Spring container(Spring IoC container)
-
-
-@Controller
+        - type of beans
+        - 
 
 
 
