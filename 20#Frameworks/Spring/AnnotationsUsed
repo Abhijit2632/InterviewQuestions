@@ -1,0 +1,30 @@
+Spring Boot Annotations have certain advantages attached to them such as-
+    - Boilerplate code is decreased
+    - XML configuration is not required
+    - POM dependency management
+
+Ex,
+
+    @SpringBootApplication
+    @EnableAutoConfiguration
+    
+    - @Service          //For Service classes
+    - @Repository       //For DAO classes that deals with DB directly
+    - @Configuration    //class having one or more @Bean methods.
+    - @Controller       //class is a web request handler.
+    - @Component
+    - @RestController
+        - class level.
+    - @Autowired        //used to auto-wire spring bean on setter methods, constructor and instance variable
+
+    - @RequestMapping   //is used to map the HTTP request
+
+    - @Bean
+        - used at the method level
+        - managed by the Spring container(Spring IoC container)
+
+
+@Controller
+
+
+
