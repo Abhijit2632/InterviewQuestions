@@ -1,0 +1,47 @@
+KafkaBestPractices,
+    - Process
+        Producer --> Broker --> Consumer
+    - Number of Brokers
+        //will confirm
+    - Naming convention
+        - EAMId
+        - int/ext - internal circulation
+        - pegasustoaiolosjson - meaningfull name for the topic
+            - all in lower case
+            - no space
+    - Retention period – depends on the Data(by default: 172800000MS/2 days) : 1/7 day in Production
+    - Replication Factor
+        - = Number of brokers
+        - main + child
+    - minimum_in_sync-replica - 2/4
+        - this is for back up
+        - when we push a msg to kafka then to get a ACK back we need this count.
+        - atleast this number of copies has to be done in order to get the ACK. then the other copies can be done parallely.
+    - Number of partition 
+        - can follow : https://dattell.com/data-architecture-blog/kafka-optimization-how-many-partitions-are-needed/#:~:text=%23%20Partitions%20%3D%20Desired%20Throughput%20%2F%20Partition,to%20about%2058%20MB%2Fs
+        - How many number of records u want to process per seconds
+        - #Partitions = Desired Throughput / Partition Speed - 10MB/Sec : Downstream process is slow(u can streamline in up application)
+        - if u want synchronous/maintain order then number of partition must be 1
+        - Number of partition will decrease ur load
+        - based on broker level only
+
+        - Max number of Consumer = > Number of partition 
+        - Rebalancing works here (Consumer will be ideal if u assign more than number of partition)
+    - Consumer Group - can be used for REbalancing
+        - is a reference
+        - all consumer part of it will be treated as single application so same OFFSET will be shared across.
+        - Ex: if 3 app are assigned with same consumer group - first read till 10 and then comes second then it will start from 11 not 0.
+        - *Best practice : 1 Kafka Topic = 1 ConsumeGroup (topicname_cg)
+    - Consumer Lag
+        - When ur reading from a Kafka Topic
+        - if lag = 0 then it means the consumer group has read all data available
+        - lag > 0 then 1.consumer may be down/2.got exception at one offset and consumer does not move on
+            - 1.handle all possible exception
+            - 2.Reset the offset if occures in production
+            - 3.u can reprocess the offset manually.
+    - OFFSET reset strategy
+        - take care by using *earliest, ~latest
+        - Ex: autoOffsetReset=earliest  //We have used
+        - Zookeeper manages this one.
+
+
