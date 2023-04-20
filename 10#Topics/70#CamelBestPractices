@@ -1,0 +1,25 @@
+
+
+
+
+    - If ur using objectMapper how can u ignore some properties.
+        - @JsonIgnoreProperties(ignoreUnknown = true)   
+        - Second way,
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    - Junit for Code coverage(80%)
+        - use Mockito
+        - 
+    - use seda inplace of toD()
+
+    - for kafka configuration
+
+    - How to define multiple consumer group in properties file of camel? Ex: groupId=aiolos_camelreader
+        - Already done in goeapp
+    - autoOffsetReset=earliest ?
+        - consumersCount=1 if this is correct or can be optimized?
+
+
+    - Max poll interval now is maintained as 10 minutes . Ex: maxPollIntervalMs=600000
+        - Can we improve more on for SFTP location ?

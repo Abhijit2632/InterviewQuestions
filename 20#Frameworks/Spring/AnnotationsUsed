@@ -6,10 +6,14 @@ Spring Boot Annotations have certain advantages attached to them such as-
 Ex,
 
     - @SpringBootApplication
+        - used to mark the main class
+        - It encapsulates @SpringBootConfiguration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes.
+        - 
     - @EnableAutoConfiguration
         - How to disable auto configuration
             @EnableAutoConfiguration(exclude = {ListOfClasses})
     
+    Stereotypes:
     - @Service          //For Service classes
     - @Repository       //For DAO classes that deals with DB directly
     - @Configuration    //class having one or more @Bean methods.
